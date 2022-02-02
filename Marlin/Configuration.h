@@ -1765,9 +1765,9 @@
 #if ENABLED(KNUTWURST_TMC)
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_X)
     // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-    #define INVERT_X_DIR false // set to true for stock drivers or TMC2208 with reversed connectors
-    #define INVERT_Y_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
-    #define INVERT_Z_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+    #define INVERT_X_DIR true // set to true for stock drivers or TMC2208 with reversed connectors
+    #define INVERT_Y_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
+    #define INVERT_Z_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
 
     // @section extruder
 
@@ -1775,10 +1775,10 @@
     #if ENABLED(KNUTWURST_BMG)
       #define INVERT_E0_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
     #else
-      #define INVERT_E0_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+      #define INVERT_E0_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
     #endif
 
-    #define INVERT_E1_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+    #define INVERT_E1_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
     #define INVERT_E2_DIR false
     #define INVERT_E3_DIR false
     #define INVERT_E4_DIR false
@@ -3526,13 +3526,13 @@
 #endif
 
 // Support for Adafruit NeoPixel LED driver
-//#define NEOPIXEL_LED
+#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-  #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+  #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
   #define NEOPIXEL_PIN     4       // LED driving pin
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_PIXELS 4       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
   //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
@@ -3566,7 +3566,7 @@
  *  - Turn off after the print has finished and the user has pushed a button
  */
 #if ANY(BLINKM, RGB_LED, RGBW_LED, PCA9632, PCA9533, NEOPIXEL_LED)
-  #define PRINTER_EVENT_LEDS
+  //#define PRINTER_EVENT_LEDS
 #endif
 
 /**
