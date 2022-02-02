@@ -696,9 +696,9 @@
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define  DEFAULT_Kp 12.28
-    #define  DEFAULT_Ki  0.75
-    #define  DEFAULT_Kd 50.06
+    #define  DEFAULT_Kp 18.27
+    #define  DEFAULT_Ki  1.26
+    #define  DEFAULT_Kd 66.23
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -1131,38 +1131,38 @@
  */
 #if ENABLED(KNUTWURST_MEGA)
   #if ENABLED(KNUTWURST_BMG)
-    #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 40 }
+    #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 30 }
   #else
     #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 80 }
   #endif
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 40 } // same feedrate for BMG
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 30 } // same feedrate for BMG
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
   #if ENABLED(KNUTWURST_BMG)
-    #define DEFAULT_MAX_FEEDRATE            { 120, 120, 12, 40 } // correct for BMG?
+    #define DEFAULT_MAX_FEEDRATE            { 120, 120, 12, 30 } // correct for BMG?
   #else
-    #define DEFAULT_MAX_FEEDRATE            { 120, 120, 12, 60 } // thanks to Simon Geis
+    #define DEFAULT_MAX_FEEDRATE            { 120, 120, 12, 80 } // thanks to Simon Geis
   #endif
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_P)
-  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 40 }
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 30 }
 #endif
 
 #if ENABLED(KNUTWURST_CHIRON)
   #if ENABLED(KNUTWURST_BMG)
-    #define DEFAULT_MAX_FEEDRATE          { 100, 100, 20, 40 }
+    #define DEFAULT_MAX_FEEDRATE          { 100, 100, 20, 30 }
   #else
-    #define DEFAULT_MAX_FEEDRATE          { 100, 100, 20, 60 }
+    #define DEFAULT_MAX_FEEDRATE          { 100, 100, 20, 80 }
   #endif
 #endif
 
 #if ENABLED(KNUTWURST_4MAXP2)
-  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 18, 80 }
+  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 18, 30 }
 #endif
 
 
@@ -3526,13 +3526,13 @@
 #endif
 
 // Support for Adafruit NeoPixel LED driver
-//#define NEOPIXEL_LED
+#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-  #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #define NEOPIXEL_PIN     4       // LED driving pin
+  #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+  #define NEOPIXEL_PIN     6       // LED driving pin
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_PIXELS 3       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
   //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
@@ -3566,7 +3566,7 @@
  *  - Turn off after the print has finished and the user has pushed a button
  */
 #if ANY(BLINKM, RGB_LED, RGBW_LED, PCA9632, PCA9533, NEOPIXEL_LED)
-  #define PRINTER_EVENT_LEDS
+  //#define PRINTER_EVENT_LEDS
 #endif
 
 /**
