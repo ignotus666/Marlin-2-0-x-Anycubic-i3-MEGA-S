@@ -88,8 +88,27 @@ void Marlin_NeoPixel::init() {
   begin();
   show();  // initialize to all off
 
-  #if ENABLED(NEOPIXEL_STARTUP_TEST)
-    set_color_startup(adaneo1.Color(255, 0, 0, 0));  // red
+  #if ENABLED(NEOPIXEL_STARTUP_TEST) //My own startup test
+
+  for ( uint16_t y = 0; y < 2; y++ )
+    {
+      for (uint16_t i = 0; i < 255; i += 20)
+      {
+        set_color_startup(adaneo1.Color(0, 255 - i, 0 + i));//Green to blue.
+        safe_delay(30);
+      }
+      for (uint16_t i = 0; i < 255; i += 20)
+      {
+        set_color_startup(adaneo1.Color(0 + i, 0, 255 - i));//Blue to red.
+        safe_delay(30);
+      }
+      for (uint16_t i = 0; i < 255; i += 20)
+      {
+        set_color_startup(adaneo1.Color(255 - i, 0 + i, 0 + i));//Red to bright cyan.}
+        safe_delay(30);
+      }
+    }
+/*    set_color_startup(adaneo1.Color(255, 0, 0, 0));  // red
     safe_delay(500);
     set_color_startup(adaneo1.Color(0, 255, 0, 0));  // green
     safe_delay(500);
@@ -99,6 +118,7 @@ void Marlin_NeoPixel::init() {
       set_color_startup(adaneo1.Color(0, 0, 0, 255));  // white
       safe_delay(500);
     #endif
+    */
   #endif
 
   #ifdef NEOPIXEL_BKGD_INDEX_FIRST
