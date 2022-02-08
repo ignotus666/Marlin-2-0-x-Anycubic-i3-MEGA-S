@@ -5,7 +5,7 @@ CURRENT_USER="$(whoami)"
 
 VERSION_FILE="$BASE_PATH/Marlin/src/inc/Version.h"
 FIRMWARE_FOLDER="$BASE_PATH/.pio/build/"
-OUTPUT_FOLDER="$HOME/Desktop/My_i3_MEGA_Firmware"
+OUTPUT_FOLDER="$HOME/My_i3_MEGA_Firmware"
 
 CUSTOM_BUILD_VERSION=$(egrep -o "([0-9]{1,}\.)+[a-zA-Z0-9_.-]{1,}" $VERSION_FILE -m2 | tail -n1)
 
