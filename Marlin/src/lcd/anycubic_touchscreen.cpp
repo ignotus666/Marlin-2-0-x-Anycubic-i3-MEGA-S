@@ -2286,6 +2286,9 @@ void AnycubicTouchscreenClass::GetCommandFromTFT() {
                     WRITE(HEATER_0_PIN, 0);
                   }
                   break;
+            #endif
+            
+            #if ENABLED(KNUTWURST_MEGA_P)
                 case 51:
                   if (CodeSeen('H')) {
                     queue.enqueue_now_P(PSTR("G1 Z5 F500"));
@@ -2310,11 +2313,11 @@ void AnycubicTouchscreenClass::GetCommandFromTFT() {
                   else if (CodeSeen('L')) {
                     queue.enqueue_now_P(PSTR("G1 X100 Y100  Z50 F5000"));
                   }
-                }
-                break;
+                  break;
             #endif
-            default:
-              break;
+            
+          default:
+          break;
           }
         }
         TFTbufindw = (TFTbufindw + 1)%TFTBUFSIZE;
