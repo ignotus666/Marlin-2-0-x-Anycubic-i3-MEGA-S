@@ -95,17 +95,22 @@ void Marlin_NeoPixel::init() {
       for (uint16_t i = 0; i < 255; i += 20)
       {
         set_color_startup(adaneo1.Color(0, 255 - i, 0 + i));//Green to blue.
-        safe_delay(30);
+        safe_delay(15);
       }
       for (uint16_t i = 0; i < 255; i += 20)
       {
         set_color_startup(adaneo1.Color(0 + i, 0, 255 - i));//Blue to red.
-        safe_delay(30);
+        safe_delay(15);
       }
       for (uint16_t i = 0; i < 255; i += 20)
       {
         set_color_startup(adaneo1.Color(255 - i, 0 + i, 0 + i));//Red to bright cyan.}
-        safe_delay(30);
+        safe_delay(15);
+      }
+      for (uint16_t i = 0; i < 255; i += 20)
+      {
+        set_color_startup(adaneo1.Color(0, 0 + i, 255 - i));//Cyan to green.}
+        safe_delay(15);
       }
     }
 /*    set_color_startup(adaneo1.Color(255, 0, 0, 0));  // red
