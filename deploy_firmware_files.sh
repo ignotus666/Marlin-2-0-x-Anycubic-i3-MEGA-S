@@ -9,8 +9,8 @@ OUTPUT_FOLDER="$HOME/My_i3_MEGA_Firmware"
 
 CUSTOM_BUILD_VERSION=$(egrep -o "([0-9]{1,}\.)+[a-zA-Z0-9_.-]{1,}" $VERSION_FILE -m2 | tail -n1)
 
-if [ -d "$$OUTPUT_FOLDER/v$CUSTOM_BUILD_VERSION" ]; then
-    echo "$$OUTPUT_FOLDER/$CUSTOM_BUILD_VERSION already exists."
+if [ -d "$OUTPUT_FOLDER/$CUSTOM_BUILD_VERSION" ]; then
+    echo "$OUTPUT_FOLDER/$CUSTOM_BUILD_VERSION already exists."
 else 
     mkdir -p $OUTPUT_FOLDER/$CUSTOM_BUILD_VERSION
 fi
@@ -23,5 +23,6 @@ pushd $FIRMWARE_FOLDER
       dir=${dir%*/}
       echo ${dir##*/}
       cp ${dir##*/}/firmware.hex /$OUTPUT_FOLDER/$CUSTOM_BUILD_VERSION/${dir##*/}_v$CUSTOM_BUILD_VERSION.hex
+      echo "Firmware copied to $OUTPUT_FOLDER"
   done
 popd
